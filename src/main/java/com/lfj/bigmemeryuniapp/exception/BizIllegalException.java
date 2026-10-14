@@ -1,4 +1,4 @@
-package com.Seek.commen.exception;
+package com.lfj.bigmemeryuniapp.exception;
 
 public class BizIllegalException extends CommonException{
 

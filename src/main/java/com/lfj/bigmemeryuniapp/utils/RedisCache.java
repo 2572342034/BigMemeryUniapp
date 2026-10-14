@@ -1,4 +1,4 @@
-package com.Seek.commen.utils;
+package com.lfj.bigmemeryuniapp.utils;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,6 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-
-@SuppressWarnings(value = { "unchecked", "rawtypes" })
 @Component
 @ConditionalOnClass(DispatcherServlet.class)
 public class RedisCache

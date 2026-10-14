@@ -1,63 +1,45 @@
-package com.Seek.commen.utils;
+package com.lfj.bigmemeryuniapp.utils;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.parser.ParserConfig;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONReader;
+import com.alibaba.fastjson2.JSONWriter;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
 
 import java.nio.charset.Charset;
 
 /**
- * Redis使用FastJson序列化
+ * Redis 使用 FastJSON 2 序列化
  *
- * @author sg
+ * @author sg / lfj
  */
-public class FastJsonRedisSerializer<T> implements RedisSerializer<T>
-{
+public class FastJsonRedisSerializer<T> implements RedisSerializer<T> {
 
-    public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
+    private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
 
-    private Class<T> clazz;
+    private final Class<T> clazz;
 
-    static
-    {
-        ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
-    }
-
-    public FastJsonRedisSerializer(Class<T> clazz)
-    {
-        super();
+    public FastJsonRedisSerializer(Class<T> clazz) {
         this.clazz = clazz;
     }
 
     @Override
-    public byte[] serialize(T t) throws SerializationException
-    {
-        if (t == null)
-        {
+    public byte[] serialize(T t) throws SerializationException {
+        if (t == null) {
             return new byte[0];
         }
-        return JSON.toJSONString(t, SerializerFeature.WriteClassName).getBytes(DEFAULT_CHARSET);
+        // FastJSON 2.x：用 JSONWriter.Feature.WriteClassName
+        return JSON.toJSONString(t, JSONWriter.Feature.WriteClassName)
+                .getBytes(DEFAULT_CHARSET);
     }
 
     @Override
-    public T deserialize(byte[] bytes) throws SerializationException
-    {
-        if (bytes == null || bytes.length <= 0)
-        {
+    public T deserialize(byte[] bytes) throws SerializationException {
+        if (bytes == null || bytes.length == 0) {
             return null;
         }
         String str = new String(bytes, DEFAULT_CHARSET);
-
-        return JSON.parseObject(str, clazz);
-    }
-
-
-    protected JavaType getJavaType(Class<?> clazz)
-    {
-        return TypeFactory.defaultInstance().constructType(clazz);
+        // FastJSON 2.x：用 JSONReader.Feature.SupportClassForName
+        return JSON.parseObject(str, clazz, JSONReader.Feature.SupportClassForName);
     }
 }

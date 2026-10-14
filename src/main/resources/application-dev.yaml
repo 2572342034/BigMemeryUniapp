@@ -1,7 +1,8 @@
-seek:
+bigmemery:
   db:
-    host: 192.168.126.128 # 修改为你自己的虚拟机IP地址 47.115.33.99
+    host: localhost # 修改为你自己的虚拟机IP地址 47.115.33.99
     pw: root
+    username: root
   redis:
     host: localhost
     port: 6379

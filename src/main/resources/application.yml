@@ -1,0 +1,57 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${bigmemery.db.host}:3306/bigmemeryuniapp?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: ${bigmemery.db.username}
+    password: ${bigmemery.db.pw}
+  profiles:
+    active: dev
+  #  rabbitmq:
+  #    host: 192.168.126.128
+  #    port: 5672          # ⚠️ 注意：AMQP 端口是 5672，不是 15672
+  #    username: root
+  #    password: root
+  #    virtual-host: test
+  data:
+    redis:
+      host: ${bigmemery.redis.host}
+      port: ${bigmemery.redis.port}
+
+
+mybatis-plus:
+  type-aliases-package: com.lfj.bigmemeryuniapp.mapper.*
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  global-config:
+    db-config:
+      id-type: assign_id
+      update-strategy: not_null
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+
+logging:
+  level:
+    org.springframework.security: debug
+    org.springframework.security.oauth2: TRACE
+    org.springframework.web.client: DEBUG
+
+bigmemery:
+  jwt:
+    location: classpath:jwt.keystore # 秘钥地址
+    alias: bigmemery # 秘钥别名
+    password: bigmemery # 秘钥文件密码
+    tokenTTL: 2400m # 登录有效期
+    type: PKCS12
+feign:
+  okhttp:
+    enabled: true # 开启OKHttp功能
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+

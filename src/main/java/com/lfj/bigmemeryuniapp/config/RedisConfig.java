@@ -1,34 +1,34 @@
-package com.Seek.commen.config;
+package com.lfj.bigmemeryuniapp.config;
 
-import com.Seek.commen.utils.FastJsonRedisSerializer;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import org.springframework.web.servlet.DispatcherServlet;
 
 @Configuration
-@ConditionalOnClass(DispatcherServlet.class)
 public class RedisConfig {
 
     @Bean
-    @SuppressWarnings(value = { "unchecked", "rawtypes" })
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory)
-    {
-        RedisTemplate<Object, Object> template = new RedisTemplate<>();
+    public RedisTemplate<String, Object> redisTemplate(
+            RedisConnectionFactory connectionFactory) {
+
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory);
 
-        FastJsonRedisSerializer serializer = new FastJsonRedisSerializer(Object.class);
+        // key 使用 String
+        StringRedisSerializer keySerializer = new StringRedisSerializer();
 
-        // 使用StringRedisSerializer来序列化和反序列化redis的key值
-        template.setKeySerializer(new StringRedisSerializer());
-        template.setValueSerializer(serializer);
+        // value 使用 Fastjson2
+        FastJson2RedisSerializer<Object> valueSerializer =
+                new FastJson2RedisSerializer<>(Object.class);
 
-        // Hash的key也采用StringRedisSerializer的序列化方式
-        template.setHashKeySerializer(new StringRedisSerializer());
-        template.setHashValueSerializer(serializer);
+        template.setKeySerializer(keySerializer);
+        template.setValueSerializer(valueSerializer);
+
+        template.setHashKeySerializer(keySerializer);
+        template.setHashValueSerializer(valueSerializer);
 
         template.afterPropertiesSet();
         return template;

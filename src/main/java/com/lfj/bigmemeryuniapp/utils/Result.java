@@ -1,4 +1,4 @@
-package com.lfj.bigmemery.comment;
+package com.lfj.bigmemeryuniapp.utils;
 
 import lombok.Data;
 
