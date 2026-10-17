@@ -1,0 +1,110 @@
+/* 水平间距 */
+/* 水平间距 */
+.login-container.data-v-e4e4508d {
+  min-height: 100vh;
+  padding: 0 50rpx;
+  background: linear-gradient(160deg, #4a90ff 0%, #6aa9ff 45%, #f5f7fa 45%);
+  box-sizing: border-box;
+}
+
+/* Logo */
+.logo-box.data-v-e4e4508d {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 140rpx;
+  padding-bottom: 60rpx;
+}
+.logo.data-v-e4e4508d {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 30rpx;
+  background: #fff;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+.welcome.data-v-e4e4508d {
+  margin-top: 30rpx;
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #fff;
+}
+.desc.data-v-e4e4508d {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 表单卡片 */
+.form-card.data-v-e4e4508d {
+  background: #fff;
+  border-radius: 32rpx;
+  padding: 50rpx 40rpx;
+  box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 记住密码 & 忘记密码 */
+.form-extra.data-v-e4e4508d {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10rpx 0 40rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+.forget.data-v-e4e4508d {
+  color: #4a90ff;
+}
+
+/* 登录按钮 */
+.login-btn.data-v-e4e4508d {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #4a90ff;
+  color: #fff;
+  font-size: 34rpx;
+  border-radius: 45rpx;
+  border: none;
+}
+.login-btn[disabled].data-v-e4e4508d {
+  opacity: 0.6;
+}
+
+/* 分隔线 */
+.divider.data-v-e4e4508d {
+  display: flex;
+  align-items: center;
+  margin: 40rpx 0 30rpx;
+  gap: 20rpx;
+}
+.line.data-v-e4e4508d {
+  flex: 1;
+  height: 2rpx;
+  background: #ddd;
+}
+.divider-text.data-v-e4e4508d {
+  font-size: 24rpx;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* 第三方登录 */
+.oauth.data-v-e4e4508d {
+  display: flex;
+  justify-content: center;
+  gap: 50rpx;
+}
+
+/* 底部注册 */
+.footer.data-v-e4e4508d {
+  text-align: center;
+  margin-top: 60rpx;
+  font-size: 26rpx;
+  color: #0055ff;
+}
+.link.data-v-e4e4508d {
+  color: #0055ff;
+  font-weight: bold;
+  margin-left: 10rpx;
+  text-decoration: underline;
+}

@@ -1,0 +1,57 @@
+.container.data-v-1cf27b2a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40rpx;
+}
+.title.data-v-1cf27b2a {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.subtitle.data-v-1cf27b2a {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 60rpx;
+}
+
+/* 请求按钮 */
+.req-btn.data-v-1cf27b2a {
+  margin-top: 20rpx;
+}
+
+/* 数据展示卡片 */
+.user-card.data-v-1cf27b2a {
+  width: 100%;
+  max-width: 600rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.06);
+  margin-top: 40rpx;
+}
+.card-title.data-v-1cf27b2a {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  display: block;
+}
+.card-content.data-v-1cf27b2a {
+  display: flex;
+  flex-direction: column;
+}
+.card-item.data-v-1cf27b2a {
+  font-size: 28rpx;
+  color: #666;
+  padding: 10rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.loading.data-v-1cf27b2a {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  color: #999;
+}

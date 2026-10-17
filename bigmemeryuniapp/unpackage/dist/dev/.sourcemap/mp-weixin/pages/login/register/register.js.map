@@ -1,0 +1,1 @@
+{"version":3,"file":"register.js","sources":["../HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvTG9naW4vcmVnaXN0ZXIvcmVnaXN0ZXIudnVl"],"sourcesContent":["import MiniProgramPage from 'C:/Users/liangfujian/Desktop/bigmemeryuniapp/pages/Login/register/register.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}
